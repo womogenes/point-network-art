@@ -1,3 +1,10 @@
+// Set up the title
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+const { title } = params;
+document.querySelector('#title').innerText = title;
+
 import './utils.js';
 import { draw } from './draw.js';
 import { particles } from './vars.js';
@@ -13,7 +20,8 @@ window.setup = () => {
   ellipseMode('center');
   ellipseMode('radius');
 
-  for (let i = 0; i < 100; i++) {
+  let n = (width * height) / 10000;
+  for (let i = 0; i < n; i++) {
     let pos = new Vector(random(0, width), random(0, height));
     let vel = Vector.random2D().mult(random(0.1, 0.5));
     particles.push(new Particle(pos, vel));

@@ -21,7 +21,7 @@ export class Particle {
   display() {
     let margin = 50;
 
-    fill(200);
+    fill(128);
     noStroke();
 
     ellipse(this.pos.x, this.pos.y, this.rad, this.rad);
