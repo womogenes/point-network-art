@@ -2,8 +2,9 @@
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
-const { title } = params;
+const { title, fontSize } = params;
 document.querySelector('#title').innerText = title;
+document.querySelector('#title').style.fontSize = fontSize | '6vw';
 
 import './utils.js';
 import { draw } from './draw.js';
