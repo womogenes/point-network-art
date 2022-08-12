@@ -4,7 +4,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 const { title, fontSize } = params;
 document.querySelector('#title').innerText = title;
-document.querySelector('#title').style.fontSize = fontSize | '6vw';
+document.querySelector('#title').style.fontSize = fontSize || '6vw';
 
 import './utils.js';
 import { draw } from './draw.js';
